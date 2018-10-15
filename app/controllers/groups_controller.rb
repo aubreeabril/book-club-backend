@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :find_group, only: [:show]
+  before_action :find_group, only: [:show, :update]
 
 def index
   @groups = Group.all
@@ -12,6 +12,11 @@ def create
 end
 
 def show
+  render json: @group
+end
+
+def update
+  @group.update(group_params)
   render json: @group
 end
 
