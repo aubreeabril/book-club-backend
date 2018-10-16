@@ -1,5 +1,5 @@
 class UserBooksController < ApplicationController
-  before_action :find_user_book, only: [:show]
+  before_action :find_user_book, only: [:show, :destroy]
 
   def index
     @user_books = UserBook.all
@@ -13,6 +13,10 @@ class UserBooksController < ApplicationController
 
   def show
     render json: @user_book
+  end
+
+  def destroy
+    render json: @user_book.destroy
   end
 
   private
