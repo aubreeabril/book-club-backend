@@ -5,4 +5,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :groups
   has_many :user_books
   has_many :votes
+  has_many :messages
 end
