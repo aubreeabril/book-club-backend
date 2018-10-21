@@ -22,7 +22,7 @@ class UserBooksController < ApplicationController
   private
 
   def user_book_params
-    params.require(:user_book).permit(:user_id, :isbn, :title, :author, :image)
+    params.require(:user_book).permit(:user_id, :isbn, :title, :author, :image, :link, :description)
   end
 
   def find_user_book

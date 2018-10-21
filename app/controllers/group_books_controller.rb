@@ -18,7 +18,7 @@ class GroupBooksController < ApplicationController
   private
 
   def group_book_params
-    params.require(:group_book).permit(:group_id, :isbn, :title, :author, :image)
+    params.require(:group_book).permit(:group_id, :isbn, :title, :author, :image, :link, :description)
   end
 
   def find_group_book
