@@ -6,22 +6,22 @@ class MessagesController < ApplicationController
     render json: @messages
   end
 
-  # def create
-  #   @message = Message.create(message_params)
-  #   render json: @message
-  # end
-
   def create
-    @message = Message.new(message_params)
-    group = Group.find(message_params[:group_id])
-    if @message.save
-      serialized_data = ActiveModelSerializers::Adapter::Json.new(
-        MessageSerializer.new(@message)
-      ).serializable_hash
-      MessagesChannel.broadcast_to group, serialized_data
-      head :ok
-    end
+    @message = Message.create(message_params)
+    render json: @message
   end
+
+  # def create
+  #   @message = Message.new(message_params)
+  #   group = Group.find(message_params[:group_id])
+  #   if @message.save
+  #     serialized_data = ActiveModelSerializers::Adapter::Json.new(
+  #       MessageSerializer.new(@message)
+  #     ).serializable_hash
+  #     MessagesChannel.broadcast_to group, serialized_data
+  #     head :ok
+  #   end
+  # end
 
   def show
     render json: @message
