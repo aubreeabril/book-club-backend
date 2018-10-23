@@ -1,5 +1,5 @@
 class GroupBooksController < ApplicationController
-  before_action :find_group_book, only: [:show]
+  before_action :find_group_book, only: [:show, :destroy]
 
   def index
     @group_books = GroupBook.all
@@ -13,6 +13,10 @@ class GroupBooksController < ApplicationController
 
   def show
     render json: @group_book
+  end
+
+  def destroy
+    render json: @group_book.destroy
   end
 
   private
