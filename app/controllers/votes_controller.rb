@@ -15,6 +15,11 @@ class VotesController < ApplicationController
     render json: @vote
   end
 
+  def destroy
+    @group = Group.find(params[:group_id])
+    render json: @group.group_books.each {|gb| gb.votes.destroy_all }
+  end
+
   private
 
   def vote_params
