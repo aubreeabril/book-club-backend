@@ -1,5 +1,5 @@
 class UserBooksController < ApplicationController
-  before_action :find_user_book, only: [:show, :destroy]
+  before_action :find_user_book, only: [:show, :destroy, :update]
 
   def index
     @user_books = UserBook.all
