@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show]
+  before_action :find_user, only: [:show, :destroy]
 
   def index
     @users = User.all
@@ -13,6 +13,10 @@ class UsersController < ApplicationController
 
   def show
     render json: @user
+  end
+
+  def destroy
+    render json: @user.destroy
   end
 
   private
